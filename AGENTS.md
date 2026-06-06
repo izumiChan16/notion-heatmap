@@ -12,6 +12,13 @@ Authoritative product and technical source documents:
 
 The project is intended for lightweight deployment on Vercel and embedding into Notion with `/embed`.
 
+## Documentation Default
+
+- Store all project documentation in the Notion project hub by default: https://app.notion.com/p/36c1d100ccaf80c6897fe6acc6a1d1f0
+- When new documentation is needed, create or update a Notion child page under the project hub instead of adding local documentation files.
+- Keep local repository docs to the minimum required for agent/project instructions or tooling compatibility.
+- If local notes, diagrams, or generated documentation artifacts are needed temporarily while working, place them in `/tmp` and do not treat them as project documentation.
+
 ## Product Principles
 
 - Personal self-deployment first.
@@ -228,7 +235,7 @@ styles/
 6. Implement Notion query pagination, filter building, aggregation, and `/api/heatmap`.
 7. Wire `/setup` and `/embed` to real API responses.
 8. Polish Notion embed layout, loading, empty, and error states.
-9. Write README deployment and troubleshooting instructions.
+9. Write deployment and troubleshooting documentation in the Notion project hub. Keep any local README minimal and pointer-only unless tooling requires more.
 
 ## Testing And Verification
 
@@ -248,6 +255,6 @@ Before claiming implementation work is complete, run the relevant lint, typechec
 
 ## Documentation Notes
 
-- README should explain Notion Integration creation, database authorization, Vercel env vars, `/setup`, embed URL generation, Notion `/embed`, and common errors.
+- The Notion project hub should explain Notion Integration creation, database authorization, Vercel env vars, `/setup`, embed URL generation, Notion `/embed`, and common errors.
 - Keep docs aligned with the Notion product and technical documents linked above.
 - If the Notion docs are revised, treat them as the source of truth and update this file accordingly.
