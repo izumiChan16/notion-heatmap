@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Tmp file
+tmp/
+
 # Next.js
 .next/
 out/
