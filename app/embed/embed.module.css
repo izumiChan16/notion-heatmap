@@ -1,16 +1,16 @@
 .appearanceAuto,
 .appearanceLight,
 .appearanceDark {
-  --embed-page: #f7f7f5;
-  --embed-card: #ffffff;
+  --embed-page: #ffffff;
+  --embed-card: #f9fafb;
   --embed-control: #ffffff;
   --embed-control-hover: #f7f7f5;
   --embed-ink: #292927;
   --embed-muted: #787774;
   --embed-muted-soft: #9b9a97;
-  --embed-line: rgba(55, 53, 47, 0.09);
-  --embed-line-strong: rgba(55, 53, 47, 0.16);
-  --embed-card-shadow: 0 1px 2px rgba(15, 15, 15, 0.035), 0 12px 36px rgba(15, 15, 15, 0.08);
+  --embed-line: rgba(17, 24, 39, 0.08);
+  --embed-line-strong: rgba(17, 24, 39, 0.13);
+  --embed-card-shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 12px 34px rgba(17, 24, 39, 0.075);
   --embed-focus: #2383e2;
   --embed-danger-bg: #fbeceb;
   --embed-danger-ink: #9f3a32;
