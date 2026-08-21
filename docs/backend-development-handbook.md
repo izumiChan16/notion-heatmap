@@ -1,4 +1,6 @@
-# Notion Heatmap 后端开发手册（零经验版）
+# Notion Heatmap 后端开发参考（已实现）
+
+> 当前可部署和运维步骤请阅读 [部署与运维指南](./deployment.md)。本文件保留为后端实现的逐步技术参考；其中的未完成清单反映编写时的教学顺序，并不代表当前项目状态。
 
 > 本地 Markdown 版本。内容面向只有 JavaScript／TypeScript 语言基础、开发经验为 0 的后端初学者；后续可再同步到 Notion 项目中心。
 
@@ -1375,4 +1377,3 @@ npm audit --omit=dev
 - [Notion 年度热力图 Widget 需求文档](https://app.notion.com/p/3751d100ccaf8144a569f7ac7f13d1c0)
 - [Notion 年度热力图 Widget 技术设计文档](https://app.notion.com/p/3751d100ccaf817d8c98f9a274b789c5)
 - [项目开始前技术学习路线：HTML/CSS 到 Notion Heatmap MVP](https://app.notion.com/p/3771d100ccaf81e48b5ef9c1339526f4)
-

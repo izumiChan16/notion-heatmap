@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { buildHeatmapCalendar, enumerateDateKeys } from './dates';
+import {
+  buildHeatmapCalendar,
+  enumerateDateKeys,
+  getHeatmapRange,
+  toDateKeyInTimezone,
+} from './dates';
 
 describe('heatmap date utilities', () => {
   it('generates every date in a leap year', () => {
@@ -36,5 +41,20 @@ describe('heatmap date utilities', () => {
       '2026-12-31',
     );
     expect(calendar.months.map((month) => month.label)).toEqual(['Jan', 'Feb', 'Mar']);
+  });
+
+  it('uses configured timezone for datetime date keys', () => {
+    expect(toDateKeyInTimezone('2025-12-31T16:30:00.000Z', 'Asia/Taipei')).toBe('2026-01-01');
+    expect(toDateKeyInTimezone('2025-12-31T16:30:00.000Z', 'America/Los_Angeles')).toBe('2025-12-31');
+  });
+
+  it('builds a complete rolling year with leap-day-safe boundaries', () => {
+    const range = getHeatmapRange(
+      { mode: 'rollingYear', year: null },
+      'UTC',
+      new Date('2024-02-29T12:00:00.000Z'),
+    );
+    expect(range).toEqual({ start: '2023-03-01', end: '2024-02-29' });
+    expect(enumerateDateKeys(range)).toHaveLength(366);
   });
 });
