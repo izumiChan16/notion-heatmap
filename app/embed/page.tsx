@@ -7,7 +7,7 @@ export default function EmbedPage() {
   return (
     <Suspense
       fallback={
-        <main className={styles.page}>
+        <main className={`${styles.page} ${styles.appearanceAuto}`} data-appearance="auto">
           <section className={styles.widget}><HeatmapSkeleton /></section>
         </main>
       }

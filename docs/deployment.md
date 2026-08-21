@@ -62,6 +62,15 @@ npm run dev
 
 Embed 页面可在“过去一年”与有数据的自然年之间切换。它只接收日期计数、年份和统计信息，不接收原始 Notion page 数据。
 
+Embed 默认通过浏览器的 `prefers-color-scheme` 自动选择浅色或深色主题。由于 Notion 页面与 Widget 是跨域 iframe，Widget 无法直接读取 Notion 父页面的主题；当 Notion 配色与设备配色不一致时，可在生成的 URL 末尾追加主题覆盖参数：
+
+```plain
+&appearance=light
+&appearance=dark
+```
+
+不传参数、使用 `appearance=auto` 或传入其他值时，都会继续跟随系统主题。该参数只影响显示，不参与配置签名，也不会发送到 Notion API。
+
 ## Vercel 部署
 
 1. 将仓库导入 Vercel，保持默认 Next.js 构建设置。

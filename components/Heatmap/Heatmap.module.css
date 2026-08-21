@@ -1,7 +1,7 @@
 .heatmap {
   --cell-size: 10px;
   --cell-gap: 3px;
-  color: var(--ink);
+  color: var(--embed-ink, var(--ink));
   width: 100%;
 }
 
@@ -9,7 +9,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   padding: 52px 3px 12px;
-  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-color: var(--embed-line-strong, var(--line-strong)) transparent;
   scrollbar-width: thin;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .months span {
-  color: var(--muted);
+  color: var(--embed-muted, var(--muted));
   white-space: nowrap;
 }
 
@@ -48,7 +48,7 @@
 
 .weekdays span {
   align-items: center;
-  color: var(--muted-soft);
+  color: var(--embed-muted-soft, var(--muted-soft));
   display: flex;
   line-height: var(--cell-size);
 }
@@ -75,7 +75,7 @@
   appearance: none;
   border: 0;
   border-radius: 2.5px;
-  box-shadow: inset 0 0 0 1px rgba(31, 35, 32, 0.045);
+  box-shadow: inset 0 0 0 1px var(--embed-line, rgba(31, 35, 32, 0.045));
   cursor: crosshair;
   display: block;
   height: 100%;
@@ -87,7 +87,7 @@
 .cell:hover,
 .cell:focus-visible {
   filter: saturate(1.12) contrast(1.05);
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--embed-ink, var(--ink));
   outline-offset: 2px;
   transform: scale(1.16);
   z-index: 3;
@@ -101,12 +101,12 @@
 }
 
 .tooltip {
-  background: #1f2320;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--embed-tooltip, #1f2320);
+  border: 1px solid var(--embed-line-strong, rgba(255, 255, 255, 0.12));
   border-radius: 8px;
   bottom: calc(100% + 10px);
   box-shadow: 0 12px 30px rgba(16, 22, 18, 0.2);
-  color: #f9faf7;
+  color: var(--embed-tooltip-ink, #f9faf7);
   display: grid;
   font-size: 10px;
   gap: 3px;
@@ -127,7 +127,7 @@
 .tooltip::after {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #1f2320;
+  border-top: 5px solid var(--embed-tooltip, #1f2320);
   content: '';
   left: calc(50% - 5px);
   position: absolute;
@@ -170,32 +170,32 @@
 }
 
 .tooltipLevel {
-  color: #aeb8b0;
+  color: var(--embed-tooltip-muted, #aeb8b0);
 }
 
 .level0 {
-  background: var(--heat-0);
+  background: var(--embed-heat-0, var(--heat-0));
 }
 
 .level1 {
-  background: var(--heat-1);
+  background: var(--embed-heat-1, var(--heat-1));
 }
 
 .level2 {
-  background: var(--heat-2);
+  background: var(--embed-heat-2, var(--heat-2));
 }
 
 .level3 {
-  background: var(--heat-3);
+  background: var(--embed-heat-3, var(--heat-3));
 }
 
 .level4 {
-  background: var(--heat-4);
+  background: var(--embed-heat-4, var(--heat-4));
 }
 
 .future {
-  background: repeating-linear-gradient(135deg, var(--heat-future), var(--heat-future) 2px, transparent 2px, transparent 4px);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--embed-heat-future, var(--heat-future));
+  box-shadow: inset 0 0 0 1px var(--embed-line, var(--line));
 }
 
 .footer {
@@ -207,7 +207,7 @@
 }
 
 .range {
-  color: var(--muted);
+  color: var(--embed-muted, var(--muted));
   font-size: 10px;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
@@ -215,7 +215,7 @@
 
 .legend {
   align-items: center;
-  color: var(--muted);
+  color: var(--embed-muted, var(--muted));
   display: flex;
   flex: 0 0 auto;
   font-size: 9px;
@@ -230,7 +230,7 @@
 }
 
 .stats {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--embed-line, var(--line));
   display: grid;
   gap: 0;
   grid-template-columns: repeat(4, 1fr);
@@ -244,12 +244,12 @@
 }
 
 .stat + .stat {
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--embed-line, var(--line));
   padding-left: 14px;
 }
 
 .stat dt {
-  color: var(--muted);
+  color: var(--embed-muted, var(--muted));
   font-size: 9px;
   letter-spacing: 0.07em;
   margin-bottom: 5px;
@@ -265,7 +265,7 @@
 }
 
 .stat dd span {
-  color: var(--muted);
+  color: var(--embed-muted, var(--muted));
   font-family: var(--font-body);
   font-size: 9px;
 }
@@ -287,7 +287,7 @@
 }
 
 .skeletonStats {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--embed-line, var(--line));
   gap: 14px;
   margin-top: 22px;
   padding-top: 15px;
@@ -317,7 +317,7 @@
 
 .shimmer {
   animation: shimmer 1.5s linear infinite;
-  background: linear-gradient(90deg, var(--surface-quiet) 20%, var(--surface-raised) 45%, var(--surface-quiet) 70%);
+  background: linear-gradient(90deg, var(--embed-skeleton, var(--surface-quiet)) 20%, var(--embed-skeleton-highlight, var(--surface-raised)) 45%, var(--embed-skeleton, var(--surface-quiet)) 70%);
   background-size: 240% 100%;
 }
 
@@ -340,13 +340,13 @@
 
   .stat:nth-child(3) {
     border-left: 0;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--embed-line, var(--line));
     padding-left: 0;
     padding-top: 15px;
   }
 
   .stat:nth-child(4) {
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--embed-line, var(--line));
     padding-top: 15px;
   }
 }

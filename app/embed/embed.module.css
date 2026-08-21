@@ -1,16 +1,108 @@
+.appearanceAuto,
+.appearanceLight,
+.appearanceDark {
+  --embed-page: #f7f7f5;
+  --embed-card: #ffffff;
+  --embed-control: #ffffff;
+  --embed-control-hover: #f7f7f5;
+  --embed-ink: #292927;
+  --embed-muted: #787774;
+  --embed-muted-soft: #9b9a97;
+  --embed-line: rgba(55, 53, 47, 0.09);
+  --embed-line-strong: rgba(55, 53, 47, 0.16);
+  --embed-card-shadow: 0 1px 2px rgba(15, 15, 15, 0.035), 0 12px 36px rgba(15, 15, 15, 0.08);
+  --embed-focus: #2383e2;
+  --embed-danger-bg: #fbeceb;
+  --embed-danger-ink: #9f3a32;
+  --embed-tooltip: #2f3437;
+  --embed-tooltip-ink: #ffffff;
+  --embed-tooltip-muted: #c7c9c8;
+  --embed-heat-0: #ebedf0;
+  --embed-heat-1: #9be9a8;
+  --embed-heat-2: #40c463;
+  --embed-heat-3: #30a14e;
+  --embed-heat-4: #216e39;
+  --embed-heat-future: #f1f1ef;
+  --embed-skeleton: #ededeb;
+  --embed-skeleton-highlight: #f8f8f7;
+  background: var(--embed-page);
+  color: var(--embed-ink);
+  color-scheme: light;
+}
+
+.appearanceDark {
+  --embed-page: #191919;
+  --embed-card: #202020;
+  --embed-control: #252525;
+  --embed-control-hover: #2b2b2b;
+  --embed-ink: #f1f1ef;
+  --embed-muted: #a8a8a5;
+  --embed-muted-soft: #7e7e7b;
+  --embed-line: rgba(255, 255, 255, 0.08);
+  --embed-line-strong: rgba(255, 255, 255, 0.14);
+  --embed-card-shadow: 0 1px 1px rgba(0, 0, 0, 0.35), 0 14px 42px rgba(0, 0, 0, 0.34);
+  --embed-focus: #5da9e9;
+  --embed-danger-bg: #3a2523;
+  --embed-danger-ink: #ffb4aa;
+  --embed-tooltip: #f1f1ef;
+  --embed-tooltip-ink: #252525;
+  --embed-tooltip-muted: #676764;
+  --embed-heat-0: #343434;
+  --embed-heat-1: #1f6f3d;
+  --embed-heat-2: #248a46;
+  --embed-heat-3: #2eaa56;
+  --embed-heat-4: #54c979;
+  --embed-heat-future: #292929;
+  --embed-skeleton: #2b2b2b;
+  --embed-skeleton-highlight: #363636;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  .appearanceAuto {
+    --embed-page: #191919;
+    --embed-card: #202020;
+    --embed-control: #252525;
+    --embed-control-hover: #2b2b2b;
+    --embed-ink: #f1f1ef;
+    --embed-muted: #a8a8a5;
+    --embed-muted-soft: #7e7e7b;
+    --embed-line: rgba(255, 255, 255, 0.08);
+    --embed-line-strong: rgba(255, 255, 255, 0.14);
+    --embed-card-shadow: 0 1px 1px rgba(0, 0, 0, 0.35), 0 14px 42px rgba(0, 0, 0, 0.34);
+    --embed-focus: #5da9e9;
+    --embed-danger-bg: #3a2523;
+    --embed-danger-ink: #ffb4aa;
+    --embed-tooltip: #f1f1ef;
+    --embed-tooltip-ink: #252525;
+    --embed-tooltip-muted: #676764;
+    --embed-heat-0: #343434;
+    --embed-heat-1: #1f6f3d;
+    --embed-heat-2: #248a46;
+    --embed-heat-3: #2eaa56;
+    --embed-heat-4: #54c979;
+    --embed-heat-future: #292929;
+    --embed-skeleton: #2b2b2b;
+    --embed-skeleton-highlight: #363636;
+    color-scheme: dark;
+  }
+}
+
 .page {
   align-items: center;
+  background: var(--embed-page);
   display: flex;
   justify-content: center;
   min-height: 100vh;
   padding: clamp(10px, 2vw, 24px);
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 .widget {
-  background: rgba(255, 255, 255, 0.93);
-  border: 1px solid var(--line-strong);
-  border-radius: 13px;
-  box-shadow: 0 10px 34px rgba(31, 36, 32, 0.075);
+  background: var(--embed-card);
+  border: 1px solid var(--embed-line-strong);
+  border-radius: 14px;
+  box-shadow: var(--embed-card-shadow);
   max-width: 890px;
   min-width: 0;
   overflow: hidden;
@@ -20,7 +112,7 @@
 
 .header {
   align-items: center;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--embed-line);
   display: flex;
   justify-content: space-between;
   padding-bottom: 14px;
@@ -56,7 +148,7 @@
 }
 
 .identity span:last-child {
-  color: var(--muted);
+  color: var(--embed-muted);
   display: block;
   font-size: 8px;
   font-weight: 650;
@@ -72,10 +164,10 @@
 
 .controls select,
 .controls button {
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
+  background: var(--embed-control);
+  border: 1px solid var(--embed-line-strong);
   border-radius: 6px;
-  color: var(--ink);
+  color: var(--embed-ink);
   font: inherit;
   font-size: 10px;
   height: 32px;
@@ -98,8 +190,15 @@
 }
 
 .controls button:hover:not(:disabled) {
-  background: #fff;
-  border-color: var(--ink);
+  background: var(--embed-control-hover);
+  border-color: var(--embed-ink);
+}
+
+.controls button:focus-visible,
+.controls select:focus-visible,
+.errorState button:focus-visible {
+  outline: 2px solid var(--embed-focus);
+  outline-offset: 2px;
 }
 
 .controls button:disabled,
@@ -145,17 +244,17 @@
 .errorState p,
 .centeredState p,
 .emptyNote {
-  color: var(--muted);
+  color: var(--embed-muted);
   font-size: 10px;
   line-height: 1.55;
   margin: 6px 0 14px;
 }
 
 .errorState button {
-  background: var(--ink);
+  background: var(--embed-ink);
   border: 0;
   border-radius: 6px;
-  color: #fff;
+  color: var(--embed-card);
   cursor: pointer;
   font: inherit;
   font-size: 10px;
@@ -164,22 +263,23 @@
 }
 
 .inlineError {
-  background: #f8ece9;
+  background: var(--embed-danger-bg);
   border-radius: 6px;
-  color: #914638;
+  color: var(--embed-danger-ink);
   font-size: 9px;
   margin: 10px 0 0;
   padding: 8px 10px;
 }
 
 .emptyNote {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--embed-line);
   margin: 16px 0 0;
   padding-top: 10px;
   text-align: center;
 }
 
 .centeredState {
+  background: var(--embed-page);
   min-height: 100vh;
   padding: 24px;
 }
@@ -190,9 +290,9 @@
 
 .stateMark {
   align-items: center;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--embed-line-strong);
   border-radius: 50%;
-  color: var(--muted);
+  color: var(--embed-muted);
   display: flex;
   font-family: var(--font-display);
   font-size: 21px;
@@ -217,16 +317,13 @@
 
 @media (max-width: 520px) {
   .page {
-    align-items: stretch;
-    padding: 0;
+    align-items: center;
+    padding: 8px;
   }
 
   .widget {
-    border-left: 0;
-    border-radius: 0;
-    border-right: 0;
-    box-shadow: none;
-    min-height: 100vh;
+    border-radius: 10px;
+    min-height: calc(100vh - 16px);
     padding: 16px 13px 24px;
   }
 

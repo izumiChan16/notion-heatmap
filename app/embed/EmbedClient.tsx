@@ -10,6 +10,18 @@ import type { HeatmapView, ViewMode } from '@/types/config';
 import type { HeatmapResponse } from '@/types/heatmap';
 import styles from './embed.module.css';
 
+type Appearance = 'auto' | 'light' | 'dark';
+
+export function parseAppearance(value: string | null): Appearance {
+  return value === 'light' || value === 'dark' ? value : 'auto';
+}
+
+function appearanceClass(appearance: Appearance): string {
+  if (appearance === 'light') return styles.appearanceLight;
+  if (appearance === 'dark') return styles.appearanceDark;
+  return styles.appearanceAuto;
+}
+
 function RefreshIcon() {
   return (
     <svg aria-hidden="true" height="14" viewBox="0 0 16 16" width="14">
@@ -22,6 +34,8 @@ export function EmbedClient() {
   const searchParams = useSearchParams();
   const configParam = searchParams.get('config') ?? '';
   const sigParam = searchParams.get('sig') ?? '';
+  const appearance = parseAppearance(searchParams.get('appearance'));
+  const themeClass = appearanceClass(appearance);
   const decodedConfig = useMemo(() => decodePublicConfig(configParam), [configParam]);
   const defaultView = decodedConfig?.display;
   const [mode, setMode] = useState<ViewMode>(defaultView?.mode ?? 'rollingYear');
@@ -79,7 +93,10 @@ export function EmbedClient() {
 
   if (!validLink) {
     return (
-      <main className={styles.centeredState}>
+      <main
+        className={`${styles.centeredState} ${themeClass}`}
+        data-appearance={appearance}
+      >
         <div className={styles.stateMark}>×</div>
         <h1>Invalid embed link</h1>
         <p>Generate a new signed URL from the setup page.</p>
@@ -88,7 +105,7 @@ export function EmbedClient() {
   }
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${themeClass}`} data-appearance={appearance}>
       <section className={styles.widget}>
         <header className={styles.header}>
           <div className={styles.identity}>
