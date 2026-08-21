@@ -1,0 +1,242 @@
+.page {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(10px, 2vw, 24px);
+}
+
+.widget {
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid var(--line-strong);
+  border-radius: 13px;
+  box-shadow: 0 10px 34px rgba(31, 36, 32, 0.075);
+  max-width: 890px;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(16px, 3vw, 28px);
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.identity {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  min-width: 0;
+}
+
+.brandMark {
+  background: var(--heat-3);
+  border-radius: 2px;
+  box-shadow: 7px 4px 0 var(--heat-1), 3px 9px 0 var(--heat-4);
+  flex: 0 0 auto;
+  height: 8px;
+  margin: 0 9px 7px 0;
+  transform: rotate(-4deg);
+  width: 8px;
+}
+
+.identity p {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 560;
+  letter-spacing: -0.015em;
+  margin: 0 0 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.identity span:last-child {
+  color: var(--muted);
+  display: block;
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 7px;
+}
+
+.controls select,
+.controls button {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 10px;
+  height: 32px;
+}
+
+.controls select {
+  cursor: pointer;
+  min-width: 100px;
+  padding: 0 26px 0 10px;
+}
+
+.controls button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  transition: background 130ms ease, border-color 130ms ease;
+  width: 32px;
+}
+
+.controls button:hover:not(:disabled) {
+  background: #fff;
+  border-color: var(--ink);
+}
+
+.controls button:disabled,
+.controls select:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.refreshing svg {
+  animation: spin 700ms linear infinite;
+}
+
+.content {
+  min-height: 202px;
+  padding-top: 5px;
+}
+
+.refreshDim {
+  opacity: 0.55;
+  transition: opacity 160ms ease;
+}
+
+.errorState,
+.centeredState {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.errorState {
+  min-height: 220px;
+}
+
+.errorState > span,
+.centeredState h1 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 560;
+}
+
+.errorState p,
+.centeredState p,
+.emptyNote {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.55;
+  margin: 6px 0 14px;
+}
+
+.errorState button {
+  background: var(--ink);
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  min-height: 32px;
+  padding: 0 14px;
+}
+
+.inlineError {
+  background: #f8ece9;
+  border-radius: 6px;
+  color: #914638;
+  font-size: 9px;
+  margin: 10px 0 0;
+  padding: 8px 10px;
+}
+
+.emptyNote {
+  border-top: 1px solid var(--line);
+  margin: 16px 0 0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.centeredState {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.centeredState h1 {
+  margin: 14px 0 0;
+}
+
+.stateMark {
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--muted);
+  display: flex;
+  font-family: var(--font-display);
+  font-size: 21px;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.srOnly {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 520px) {
+  .page {
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .widget {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    padding: 16px 13px 24px;
+  }
+
+  .identity p {
+    max-width: 145px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refreshing svg {
+    animation: none;
+  }
+}

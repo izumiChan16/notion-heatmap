@@ -1,0 +1,62 @@
+:root {
+  --paper: #f5f3ed;
+  --surface: #fbfaf7;
+  --surface-raised: #ffffff;
+  --surface-quiet: #eeeee8;
+  --ink: #20231f;
+  --muted: #6d726c;
+  --muted-soft: #989d96;
+  --line: #e2e1da;
+  --line-strong: #cecec5;
+  --accent: #267c49;
+  --accent-dark: #1c5d37;
+  --heat-0: #e7e8e2;
+  --heat-1: #a7dfaf;
+  --heat-2: #58bd73;
+  --heat-3: #2ca052;
+  --heat-4: #176b38;
+  --heat-future: #e9e9e4;
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  --font-body: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color-scheme: light;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.75), transparent 30%),
+    linear-gradient(rgba(42, 55, 45, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 55, 45, 0.025) 1px, transparent 1px),
+    var(--paper);
+  background-size: auto, 28px 28px, 28px 28px, auto;
+  color: var(--ink);
+  font-family: var(--font-body);
+  margin: 0;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(44, 160, 82, 0.2);
+}
